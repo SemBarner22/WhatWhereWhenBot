@@ -8,6 +8,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -45,6 +46,18 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+
+        if (update.hasCallbackQuery()) {
+            try {
+                execute(telegramFacade.processCallbackQuery(update.getCallbackQuery(), update));
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
+
+
+
         if (update.getMessage() != null && update.getMessage().hasText()) {
             try {
                 SendMessage sendMessage = telegramFacade.handleUpdate(update);
@@ -58,6 +71,7 @@ public class Bot extends TelegramLongPollingBot {
             }
         }
     }
+
 
     @Override
     public String getBotUsername() {

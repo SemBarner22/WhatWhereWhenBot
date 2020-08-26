@@ -61,7 +61,7 @@ public class BotConfig {
         list.add(new DefaultHandler(userDataCache, replyMessagesService));
         BotStateContext botStateContext = new BotStateContext(list);
 
-        TelegramFacade facade = new TelegramFacade(botStateContext, userDataCache);
+        TelegramFacade facade = new TelegramFacade(botStateContext, userDataCache, replyMessagesService);
 
         Bot bot = new Bot(facade);
 

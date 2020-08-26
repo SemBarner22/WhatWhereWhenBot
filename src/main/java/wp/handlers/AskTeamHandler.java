@@ -23,6 +23,7 @@ public class AskTeamHandler extends AbstractHandler {
         int userId = inputMsg.getFrom().getId();
         long chatId = inputMsg.getChatId();
         SendMessage replyToUser;
+        System.out.println(inputMsg.getText());
         switch (inputMsg.getText()) {
             case "Да.":
                 replyToUser = messagesService.getReplyMessage(chatId, "reply.teamYes");
