@@ -12,10 +12,7 @@ import wp.*;
 import wp.Service.LocaleMessageService;
 import wp.Service.ReplyMessagesService;
 import wp.cache.UserDataCache;
-import wp.handlers.AskTeamHandler;
-import wp.handlers.DefaultHandler;
-import wp.handlers.InputMessageHandler;
-import wp.handlers.StartHandler;
+import wp.handlers.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,8 +56,8 @@ public class BotConfig {
         list.add(new AskTeamHandler(userDataCache, replyMessagesService));
         list.add(new StartHandler(userDataCache, replyMessagesService));
         list.add(new DefaultHandler(userDataCache, replyMessagesService));
+        list.add(new CreateJoinHandler(userDataCache, replyMessagesService));
         BotStateContext botStateContext = new BotStateContext(list);
-
         TelegramFacade facade = new TelegramFacade(botStateContext, userDataCache, replyMessagesService);
 
         Bot bot = new Bot(facade);

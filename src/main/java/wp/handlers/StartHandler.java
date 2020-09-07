@@ -34,10 +34,10 @@ public class StartHandler extends AbstractHandler {
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         InlineKeyboardButton buttonYes = new InlineKeyboardButton("Да.").setCallbackData("buttonYes");
         InlineKeyboardButton buttonNo = new InlineKeyboardButton("Нет.").setCallbackData("buttonNo");
-        buttonYes.setText("Да.");
-        buttonNo.setText("Нет.");
-        buttonYes.setCallbackData("buttonYes");
-        buttonNo.setCallbackData("buttonNo");
+//        buttonYes.setText("Да.");
+//        buttonNo.setText("Нет.");
+//        buttonYes.setCallbackData("buttonYes");
+//        buttonNo.setCallbackData("buttonNo");
         List<InlineKeyboardButton> keyboardButtons = new ArrayList<>();
         keyboardButtons.add(buttonYes);
         keyboardButtons.add(buttonNo);

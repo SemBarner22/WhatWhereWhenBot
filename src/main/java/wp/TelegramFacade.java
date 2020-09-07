@@ -60,21 +60,35 @@ public class TelegramFacade {
         switch (callbackQuery.getData()) {
             case "buttonYes":
                 replyToUser = messagesService.getReplyMessage(chatId, "reply.teamYes");
+                userDataCache.setUsersCurrentBotState(userId, BotState.CREATE_JOIN_TEAM);
+                break;
+            case "buttonNo":
+                replyToUser = messagesService.getReplyMessage(chatId, "reply.teamNo");
+                userDataCache.setUsersCurrentBotState(userId, BotState.DEFAULT);
+                break;
+            case "buttonCreate":
+                replyToUser = messagesService.getReplyMessage(chatId, "reply.teamCreate");
+                userDataCache.setUsersCurrentBotState(userId, BotState.CREATE);
+                break;
+            case "buttonJoin":
+                replyToUser = messagesService.getReplyMessage(chatId, "reply.teamJoin");
+                userDataCache.setUsersCurrentBotState(userId, BotState.JOIN);
                 break;
             default:
-                replyToUser = messagesService.getReplyMessage(chatId, "reply.teamNo");
+                replyToUser = messagesService.getReplyMessage(chatId, "reply.defaultCase");
+                userDataCache.setUsersCurrentBotState(userId, BotState.DEFAULT);
                 break;
         }
 //        System.out.println(callbackQuery.get);
 //       SendMessage message = botStateContext.processInputMessage(BotState.ASK_TEAM, callbackQuery.getMessage());
-       userDataCache.setUsersCurrentBotState(userId, BotState.DEFAULT);
+
        return replyToUser;
     }
 
 //    private AnswerCallbackQuery sendAnswerCallbackQuery(String s, CallbackQuery callbackQuery) {
 //        AnswerCallbackQuery answerCallbackQuery = new AnswerCallbackQuery();
 //        answerCallbackQuery.setCallbackQueryId(callbackQuery.getId());
-//        answerCallbackQuery.setText(s);
+//        answerCallbackQuery.setText(s );
 //        return answerCallbackQuery;
 //    }
 

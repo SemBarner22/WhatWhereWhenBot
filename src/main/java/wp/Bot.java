@@ -40,6 +40,7 @@ public class Bot extends TelegramLongPollingBot {
 //    }
 
     public Bot(TelegramFacade telegramFacade) {
+        super();
         this.telegramFacade = telegramFacade;
     }
 
@@ -55,8 +56,6 @@ public class Bot extends TelegramLongPollingBot {
             }
             return;
         }
-
-
 
         if (update.getMessage() != null && update.getMessage().hasText()) {
             try {

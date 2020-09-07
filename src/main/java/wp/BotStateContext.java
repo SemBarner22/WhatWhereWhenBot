@@ -20,9 +20,6 @@ public class BotStateContext {
     public SendMessage processInputMessage(BotState currentState, Message message) {
         InputMessageHandler currentMessageHandler = findMessageHandler(currentState);
         SendMessage d = currentMessageHandler.handle(message);
-        if (d == null) {
-            System.out.println("currentMessageHandler.handle(message) is null");
-        }
         return d;
     }
 

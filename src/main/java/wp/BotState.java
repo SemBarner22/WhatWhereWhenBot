@@ -3,5 +3,8 @@ package wp;
 public enum BotState {
     START,
     ASK_TEAM,
-    DEFAULT
+    DEFAULT,
+    CREATE_JOIN_TEAM,
+    CREATE,
+    JOIN
 }
