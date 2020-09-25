@@ -5,6 +5,10 @@ public enum BotState {
     ASK_TEAM,
     DEFAULT,
     CREATE_JOIN_TEAM,
+    ASK_TEAM_NAME_JOIN,
+    ASK_TEAM_NAME_CREATE,
+    ASK_PASSWORD_CREATE,
+    ASK_PASSWORD_JOIN,
     CREATE,
     JOIN
 }

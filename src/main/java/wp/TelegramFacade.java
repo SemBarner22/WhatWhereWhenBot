@@ -58,14 +58,14 @@ public class TelegramFacade {
 //        AnswerCallbackQuery replyToUser;
         SendMessage replyToUser;
         switch (callbackQuery.getData()) {
-            case "buttonYes":
-                replyToUser = messagesService.getReplyMessage(chatId, "reply.teamYes");
-                userDataCache.setUsersCurrentBotState(userId, BotState.CREATE_JOIN_TEAM);
-                break;
-            case "buttonNo":
-                replyToUser = messagesService.getReplyMessage(chatId, "reply.teamNo");
-                userDataCache.setUsersCurrentBotState(userId, BotState.DEFAULT);
-                break;
+//            case "buttonYes":
+//                replyToUser = messagesService.getReplyMessage(chatId, "reply.teamYes");
+//                userDataCache.setUsersCurrentBotState(userId, BotState.CREATE_JOIN_TEAM);
+//                break;
+//            case "buttonNo":
+//                replyToUser = messagesService.getReplyMessage(chatId, "reply.teamNo");
+//                userDataCache.setUsersCurrentBotState(userId, BotState.DEFAULT);
+//                break;
             case "buttonCreate":
                 replyToUser = messagesService.getReplyMessage(chatId, "reply.teamCreate");
                 userDataCache.setUsersCurrentBotState(userId, BotState.CREATE);

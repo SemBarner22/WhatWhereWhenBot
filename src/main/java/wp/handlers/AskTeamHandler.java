@@ -32,7 +32,7 @@ public class AskTeamHandler extends AbstractHandler {
         switch (inputMsg.getText()) {
             case "Да.":
                 replyToUser = messagesService.getReplyMessage(chatId, "reply.");
-                userDataCache.setUsersCurrentBotState(userId, BotState.CREATE_JOIN_TEAM);
+                userDataCache.setUsersCurrentBotState(userId, BotState.ASK_TEAM_NAME_CREATE);
                 replyToUser.setReplyMarkup(getInlineMessageButtons());
                 break;
             default:
