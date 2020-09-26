@@ -2,18 +2,19 @@ package wp.repository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import wp.domain.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-
+@Repository
 public interface TeamRepository extends JpaRepository<Team, Long> {
-    int countByName(String login);
+    int countByName(String name);
 
     @Query(value = "SELECT * FROM team WHERE name=?1 AND passwordSha=SHA1(CONCAT('1be3db47a7684152', ?1, ?2))", nativeQuery = true)
-    Team findByNameAndPassword(String login, String password);
+    Team findByNameAndPassword(String name, String password);
 
     List<Team> findAllByOrderByIdDesc();
 

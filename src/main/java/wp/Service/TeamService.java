@@ -1,5 +1,6 @@
 package wp.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wp.form.TeamCredentials;
 import wp.repository.TeamRepository;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Service
 public class TeamService {
+
     private final TeamRepository teamRepository;
 
     public TeamService(TeamRepository teamRepository) {
@@ -26,8 +28,8 @@ public class TeamService {
         return teamRepository.countByName(login) == 0;
     }
 
-    public Team findByNameAndPassword(String login, String password) {
-        return login == null || password == null ? null : teamRepository.findByNameAndPassword(login, password);
+    public Team findByNameAndPassword(String name, String password) {
+        return name == null || password == null ? null : teamRepository.findByNameAndPassword(name, password);
     }
 
     public Team findById(Long id) {
