@@ -3,7 +3,7 @@ package wp.Service;
 import org.springframework.stereotype.Service;
 import wp.form.TeamCredentials;
 import wp.repository.TeamRepository;
-import ru.itmo.wp.domain.Team;
+import wp.domain.Team;
 import java.util.List;
 
 @Service
@@ -14,7 +14,7 @@ public class TeamService {
         this.teamRepository = teamRepository;
     }
 
-    public ru.itmo.wp.domain.Team register(TeamCredentials teamCredentials) {
+    public Team register(TeamCredentials teamCredentials) {
         Team team = new Team();
         team.setName(teamCredentials.getName());
         teamRepository.save(team);

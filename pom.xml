@@ -19,11 +19,6 @@
     <!-- FIXME change it to the project's website -->
     <url>https://www.example.com</url>
 
-    <dependency>
-        <groupId>org.mariadb.jdbc</groupId>
-        <artifactId>mariadb-java-client</artifactId>
-        <version>2.5.1</version>
-    </dependency>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>

@@ -23,7 +23,6 @@ public class BotStateContext {
         return d;
     }
 
-
     private InputMessageHandler findMessageHandler(BotState curState) {
         return messageHandlers.get(curState);
     }

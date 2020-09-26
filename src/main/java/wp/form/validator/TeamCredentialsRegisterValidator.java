@@ -1,9 +1,11 @@
 package wp.form.validator;
 
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import wp.Service.TeamService;
 import wp.form.TeamCredentials;
 
+@Component
 public class TeamCredentialsRegisterValidator {
     private final TeamService teamService;
 

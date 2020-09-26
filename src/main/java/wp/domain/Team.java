@@ -1,4 +1,4 @@
-package ru.itmo.wp.domain;
+package wp.domain;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +15,8 @@ import java.util.Date;
         uniqueConstraints = @UniqueConstraint(columnNames = "name")
 )
 public class Team {
+    public Team(){}
+
     @Id
     @GeneratedValue
     private long id;
