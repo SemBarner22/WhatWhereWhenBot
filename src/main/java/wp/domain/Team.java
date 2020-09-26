@@ -15,10 +15,8 @@ import java.util.Date;
         uniqueConstraints = @UniqueConstraint(columnNames = "name")
 )
 public class Team {
-    public Team(){}
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @NotNull

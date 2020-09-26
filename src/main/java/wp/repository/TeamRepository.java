@@ -13,7 +13,8 @@ import java.util.List;
 public interface TeamRepository extends JpaRepository<Team, Long> {
     int countByName(String name);
 
-    @Query(value = "SELECT * FROM team WHERE name=?1 AND passwordSha=SHA1(CONCAT('1be3db47a7684152', ?1, ?2))", nativeQuery = true)
+    @Query(value = "SELECT * FROM team WHERE" +
+            " name=?1 AND passwordSha=SHA1(CONCAT('1be3db47a7684152', ?1, ?2))", nativeQuery = true)
     Team findByNameAndPassword(String name, String password);
 
     List<Team> findAllByOrderByIdDesc();
