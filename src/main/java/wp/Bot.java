@@ -34,6 +34,7 @@ public class Bot extends TelegramLongPollingBot {
 
     public Bot(TelegramFacade telegramFacade) {
         super();
+        System.out.println("Bot Creating");
         this.telegramFacade = telegramFacade;
     }
 
@@ -43,6 +44,7 @@ public class Bot extends TelegramLongPollingBot {
 
         if (update.hasCallbackQuery()) {
             try {
+                System.out.println("Callback");
                 execute(telegramFacade.processCallbackQuery(update.getCallbackQuery(), update));
             } catch (TelegramApiException e) {
                 e.printStackTrace();
@@ -52,6 +54,7 @@ public class Bot extends TelegramLongPollingBot {
 
         if (update.getMessage() != null && update.getMessage().hasText()) {
             try {
+                System.out.println("Message");
                 SendMessage sendMessage = telegramFacade.handleUpdate(update);
                 if (sendMessage == null) {
                     execute(new SendMessage(update.getMessage().getChatId(), "я, " + update.getMessage().getText() + ","));

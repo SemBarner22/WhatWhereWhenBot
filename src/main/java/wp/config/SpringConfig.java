@@ -15,7 +15,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import wp.database.DatabaseUtils;
 import wp.domain.Team;
-import wp.repository.TeamRepository;
+//import wp.repository.TeamRepository;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -28,21 +28,20 @@ public class SpringConfig {
 //so there is no need to configure it from java.
     DataSource dataSource = DatabaseUtils.getDataSource();
 
-    @Bean(name="entityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        //JpaVendorAdapteradapter can be autowired as well if it's configured in application properties.
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(false);
-
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-        factory.setJpaVendorAdapter(vendorAdapter);
-        //Add package to scan for entities.
-//        factory.setPackagesToScan("com.company.domain");
-        factory.setPackagesToScan("wp.domain");
-        factory.setDataSource(dataSource);
-        return factory;
-    }
+//    @Bean //(name="emf")
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+//        //JpaVendorAdapteradapter can be autowired as well if it's configured in application properties.
+//        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+//        vendorAdapter.setGenerateDdl(false);
 //
+//        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+//        factory.setJpaVendorAdapter(vendorAdapter);
+//        //Add package to scan for entities.
+////        factory.setPackagesToScan("com.company.domain");
+//        factory.setPackagesToScan("wp.domain");
+//        factory.setDataSource(dataSource);
+//        return factory;
+//    }
 //    @Bean(name="entityManagerFactory")
 //    public LocalSessionFactoryBean sessionFactory() {
 //        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -50,7 +49,7 @@ public class SpringConfig {
 //        return sessionFactory;
 //    }
 
-    @Bean
+    @Bean(name="emf")
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(entityManagerFactory);

@@ -1,15 +1,15 @@
-package wp.controller;
-
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import org.telegram.telegrambots.meta.api.objects.Update;
-import wp.Bot;
-
-@RestController
-public class WebHookController {
+//package wp.controller;
+//
+//import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RestController;
+//import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+//import org.telegram.telegrambots.meta.api.objects.Update;
+//import wp.Bot;
+//
+//@RestController
+//public class WebHookController {
 //    private final Bot bot;
 //
 //    public WebHookController(Bot bot) {
@@ -20,5 +20,5 @@ public class WebHookController {
 //    public BotApiMethod<?> onUpdateReceived(@RequestBody Update update) {
 //        return bot.onWebhookUpdateReceived(update);
 //    }
-
-}
+//
+//}

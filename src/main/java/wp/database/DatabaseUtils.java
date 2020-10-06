@@ -26,9 +26,9 @@ public class DatabaseUtils {
 
             try {
                 MariaDbDataSource instance = new MariaDbDataSource();
-                instance.setUrl(properties.getProperty("spring.database.url"));
-                instance.setUser(properties.getProperty("spring.database.user"));
-                instance.setPassword(properties.getProperty("spring.database.password"));
+                instance.setUrl(properties.getProperty("spring.datasource.url"));
+                instance.setUser(properties.getProperty("spring.datasource.user"));
+                instance.setPassword(properties.getProperty("spring.datasource.password"));
                 INSTANCE = instance;
             } catch (SQLException e) {
                 throw new RuntimeException("Can't initialize DataSource.", e);
