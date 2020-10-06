@@ -1,23 +1,37 @@
 package wp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import wp.Service.ReplyMessagesService;
+import wp.Service.TeamService;
 import wp.cache.UserDataCache;
+import wp.domain.Team;
+import wp.form.TeamCredentials;
+import wp.repository.TeamRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Component
 public class TelegramFacade {
     private ReplyMessagesService messagesService;
     private BotStateContext botStateContext;
     private UserDataCache userDataCache;
+    TeamService teamService;
 
-    public TelegramFacade(BotStateContext botStateContext, UserDataCache userDataCache, ReplyMessagesService replyMessagesService) {
+    public TelegramFacade(BotStateContext botStateContext, UserDataCache userDataCache, ReplyMessagesService replyMessagesService, TeamService teamService) {
         this.botStateContext = botStateContext;
         this.userDataCache = userDataCache;
         this.messagesService = replyMessagesService;
+        this.teamService = teamService;
     }
 
     public SendMessage handleUpdate(Update update) {
@@ -35,6 +49,11 @@ public class TelegramFacade {
         int userId = message.getFrom().getId();
         BotState botState;
         switch (inputMsg) {
+            case "register":
+                TeamCredentials credentials = new TeamCredentials();
+                credentials.setName("aaaaa");
+                credentials.setPassword("bbbbbbbbbb");
+                teamService.register(credentials);
             case "/start":
                 botState = BotState.START;
                 break;

@@ -22,6 +22,7 @@ import wp.appconfig.BotConfig;
 //        DataSourceTransactionManagerAutoConfiguration.class,
 //        HibernateJpaAutoConfiguration.class})
 //@EnableAutoConfiguration
+//(transactionManagerRef = "dbTransactionManager")
 @EnableJpaRepositories
 @Configuration
 @EnableAutoConfiguration

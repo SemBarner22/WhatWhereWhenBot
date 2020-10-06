@@ -1,6 +1,7 @@
 package wp.appconfig;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import wp.Bot;
 import wp.BotStateContext;
 import wp.Service.LocaleMessageService;
 import wp.Service.ReplyMessagesService;
+import wp.Service.TeamService;
 import wp.TelegramFacade;
 import wp.cache.UserDataCache;
 import wp.handlers.*;
@@ -21,6 +23,9 @@ import java.util.List;
 
 @Configuration
 public class BotConfig {
+
+    @Autowired
+    private TeamService teamService;
 
 //    public String getName() {
 //        return name;
@@ -60,7 +65,7 @@ public class BotConfig {
         list.add(new DefaultHandler(userDataCache, replyMessagesService));
         list.add(new CreateJoinHandler(userDataCache, replyMessagesService));
         BotStateContext botStateContext = new BotStateContext(list);
-        TelegramFacade facade = new TelegramFacade(botStateContext, userDataCache, replyMessagesService);
+        TelegramFacade facade = new TelegramFacade(botStateContext, userDataCache, replyMessagesService, teamService);
 
         Bot bot = new Bot(facade);
 

@@ -1,5 +1,4 @@
 package wp.repository;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -9,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-@Repository
+//@Repository
 public interface TeamRepository extends JpaRepository<Team, Long> {
     int countByName(String name);
 
