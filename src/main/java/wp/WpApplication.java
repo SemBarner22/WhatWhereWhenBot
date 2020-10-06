@@ -12,10 +12,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
-import wp.config.BotConfig;
+import wp.appconfig.BotConfig;
 
-@Configuration("wp.config")
-@ComponentScan("wp.domain")
+//@Configuration("wp.config")
+//@ComponentScan("wp.domain")
 //@EnableJpaRepositories(basePackages="wp.repository", entityManagerFactoryRef = "emf")
 //@EnableJpaRepositories(basePackages="wp.repository")
 //@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,
@@ -23,7 +23,9 @@ import wp.config.BotConfig;
 //        HibernateJpaAutoConfiguration.class})
 //@EnableAutoConfiguration
 @EnableJpaRepositories
-@SpringBootApplication
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
 public class WpApplication implements WebMvcConfigurer {
 //    @Override
 //    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer defaultServletHandlerConfigurer) {

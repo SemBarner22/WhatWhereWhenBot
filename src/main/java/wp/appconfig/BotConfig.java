@@ -1,17 +1,18 @@
-package wp.config;
+package wp.appconfig;
 
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
-import wp.*;
+import wp.Bot;
+import wp.BotStateContext;
 import wp.Service.LocaleMessageService;
 import wp.Service.ReplyMessagesService;
+import wp.TelegramFacade;
 import wp.cache.UserDataCache;
 import wp.handlers.*;
 
